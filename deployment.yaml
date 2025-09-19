@@ -17,11 +17,6 @@ spec:
       containers:
       - name: flask-app
         image: ormoshe/class-8-argocd-gitops:latest
-        command:
-          - /bin/sh
-          - -c
-          - while true; do echo "$(date) My preferred sport is $(cat /etc/config/sport)";
-            sleep 10; done;
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
