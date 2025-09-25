@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+  namespace: argocd
+data:
+  subscriptions: |
+    - recipients:
+      - email:ormoshe2468@gmail.com
+      triggers:
+      - on-sync-succeeded
+  templates: |
+    - name: sync-success-email
+      body: |
+        Application {{.app.metadata.name}} synced successfully at {{.app.status.operationState.finishedAt}}.
+      subject: ArgoCD App Synced
